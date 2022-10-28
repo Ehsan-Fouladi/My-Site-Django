@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class HemeAppConfig(AppConfig):
+class HomeConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'heme_app'
+    name = 'home'
     verbose_name = "Email"

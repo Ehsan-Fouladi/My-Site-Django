@@ -1,9 +1,8 @@
 from django.shortcuts import render
+from home.models import User
 
-from heme_app.models import User
 
-
-def heme(request):
+def home(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
@@ -13,4 +12,4 @@ def heme(request):
         time = request.POST.get('time')
         User.objects.create(name=name, email=email, topic=topic, body=body, view=view, time=time)
 
-    return render(request, "heme_app/index.html")
+    return render(request, "home/index.html")
