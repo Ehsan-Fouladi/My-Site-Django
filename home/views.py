@@ -1,15 +1,25 @@
 from django.shortcuts import render
 from home.models import User
+from django.views import View
+from django.views.generic import TemplateView, ListView
 
 
 def home(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
-        topic = request.POST.get('topic')
+        title = request.POST.get('title')
         body = request.POST.get('body')
-        view = request.POST.get('view')
-        time = request.POST.get('time')
-        User.objects.create(name=name, email=email, topic=topic, body=body, view=view, time=time)
+        User.objects.create(name=name, email=email, title=title, body=body)
 
-    return render(request, "home/index.html")
+    return render(request, "home/index.html", {})
+
+
+# class HomeView(TemplateView):
+#     template_name = "home/index.html"
+    
+    
+
+# class HomeModelView(ListView):
+#     template_name = "home/index.html"
+#     model = User
