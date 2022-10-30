@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from home.models import User
 from django.views import View
 from django.views.generic import TemplateView, ListView
@@ -8,9 +8,9 @@ def home(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
-        title = request.POST.get('title')
+        topic = request.POST.get('topic')
         body = request.POST.get('body')
-        User.objects.create(name=name, email=email, title=title, body=body)
+        User.objects.create(name=name, email=email, topic=topic, body=body)
 
     return render(request, "home/index.html", {})
 
