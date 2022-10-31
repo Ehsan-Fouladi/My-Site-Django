@@ -404,7 +404,7 @@
                                    سلام من احسان هستم برنامه نویس سایت من در زمینه سایت فعالیت دارم من در خراسان رضوی کلبهار زندگی میکنم حدود ۱سال نیم هسات که این حوضه را شروع کردم 
                                 </p>
                                 <div class="mt-3">
-                                    <a href="#" class="btn btn-default">دانلود رزومه</a>
+                                    <a href="{% url "home:download" %}" class="btn btn-default">دانلود رزومه</a>
                                 </div>
                                 <div
                                         class="spacer d-md-none d-lg-none"
@@ -797,170 +797,30 @@
     <section id="works">
         <div class="container">
             <!-- section title -->
-            <h2 class="section-title wow fadeInUp">نمونه کارهای اخیر</h2>
+            <h2 class="section-title wow fadeInUp">نمونه کارها</h2>
 
-            <div class="spacer" data-height="60"></div>
-
-            <!-- portfolio filter (desktop) -->
-            <ul class="portfolio-filter list-inline wow fadeInUp">
-                <li class="current list-inline-item" data-filter="*">همه</li>
-                <li class="list-inline-item" data-filter=".creative">آموزش</li>
-                <li class="list-inline-item" data-filter=".art">هنر</li>
-                <li class="list-inline-item" data-filter=".design">طرح</li>
-                <li class="list-inline-item" data-filter=".branding">تجاری</li>
-            </ul>
-
-            <!-- portfolio filter (mobile) -->
-            <div class="pf-filter-wrapper">
-                <select class="portfolio-filter-mobile">
-                    <option value="*">همه</option>
-                    <option value=".creative">آموزش</option>
-                    <option value=".art">هنر</option>
-                    <option value=".design">طرح</option>
-                    <option value=".branding">تجاری</option>
-                </select>
-            </div>
-
+            <div class="spacer" data-height="40"></div>
             <!-- portolio wrapper -->
             <div class="row portfolio-wrapper">
+                {% for article in articles %}
                 <!-- portfolio item -->
                 <div class="col-md-4 col-sm-6 grid-item art">
-                    <a href="{% static "images/works/1.svg" %}" class="work-image">
+                    <a href="{{ article.image.url }}" class="work-image">
                         <div class="portfolio-item rounded shadow-dark">
                             <div class="details">
-                                <span class="term">هنر</span>
-                                <h4 class="title">تصویر مدیریت پروژه</h4>
+                                <h4 class="title">{{ article.title }}</h4>
                                 <span class="more-button"
                                 ><i class="icon-magnifier-add"></i
                                 > </span>
                             </div>
                             <div class="thumb">
-                                <img src="{% static "images/works/1.svg" %}" alt="Portfolio-title"/>
+                                <img src="{{ article.image.url }}" alt="{{ article.title }}"/>
                                 <div class="mask"></div>
                             </div>
                         </div>
                     </a>
                 </div>
-
-                <!-- portfolio item -->
-                <div class="col-md-4 col-sm-6 grid-item creative design">
-                    <a href="#small-dialog" class="work-content">
-                        <div class="portfolio-item rounded shadow-dark">
-                            <div class="details">
-                                <span class="term">آموزش</span>
-                                <h4 class="title">آموزش برنامه نویسی </h4>
-                                <span class="more-button"
-                                ><i class="icon-options"></i
-                                ></span>
-                            </div>
-                            <div class="thumb">
-                                <img src="{% static "images/works/2.svg" %}" alt="Portfolio-title"/>
-                                <div class="mask"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <div
-                            id="small-dialog"
-                            class="white-popup zoom-anim-dialog mfp-hide"
-                    >
-                        <img src="{% static "images/single-work.svg" %}" alt="Title"/>
-                        <h2>اموزش برنامه نویسی </h2>
-                        <p>
-                            شما میتوانید در سایت کد یاد طراحی وب .اپ موبایل زبان پایتون را درسایت کد یاد یاد بگیرد
-                        </p>
-                        <p>
-                            درشبکه های اجتماعی من حتما بازدید کنید تا از اخبار و تکنولوژی عقب نمانید
-                        </p>
-                        <a href="https://codeyad.com" class="btn btn-default">مشاهده در سایت کدیاد</a>
-                    </div>
-                </div>
-
-                <!-- portfolio item -->
-                <div class="col-md-4 col-sm-6 grid-item branding">
-                    <a
-                            href="https://www.youtube.com/watch?v=qf9z4ulfmYw"
-                            class="work-video"
-                    >
-                        <div class="portfolio-item rounded shadow-dark">
-                            <div class="details">
-                                <span class="term">تجاری</span>
-                                <h4 class="title">تحویل اپلیکیشن</h4>
-                                <span class="more-button"
-                                ><i class="icon-camrecorder"></i
-                                ></span>
-                            </div>
-                            <div class="thumb">
-                                <img src="{% static "images/works/3.svg" %}" alt="Portfolio-title"/>
-                                <div class="mask"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- portfolio item -->
-                <div class="col-md-4 col-sm-6 grid-item creative">
-                    <a
-                            href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/240233494&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                            class="work-video"
-                    >
-                        <div class="portfolio-item rounded shadow-dark">
-                            <div class="details">
-                                <span class="term">خلاق</span>
-                                <h4 class="title">انگیزه خارجی</h4>
-                                <span class="more-button"
-                                ><i class="icon-music-tone-alt"></i
-                                ></span>
-                            </div>
-                            <div class="thumb">
-                                <img src="{% static "images/works/4.svg" %}" alt="Portfolio-title"/>
-                                <div class="mask"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- portfolio item -->
-                <div class="col-md-4 col-sm-6 grid-item art branding">
-                    <a href="#gallery-1" class="gallery-link">
-                        <div class="portfolio-item rounded shadow-dark">
-                            <div class="details">
-                                <span class="term">هنر، تجاری</span>
-                                <h4 class="title">طراحی وب</h4>
-                                <span class="more-button"
-                                ><i class="icon-picture"></i
-                                ></span>
-                            </div>
-                            <div class="thumb">
-                                <img src="{% static "images/works/5.svg" %}" alt="Portfolio-title"/>
-                                <div class="mask"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <div id="gallery-1" class="gallery mfp-hide">
-                        <a href="{% static "images/works/5.svg" %}"></a>
-                        <a href="{% static "images/works/4.svg" %}"></a>
-                    </div>
-                </div>
-
-                <!-- portfolio item -->
-                <div class="col-md-4 col-sm-6 grid-item creative design">
-                    <a
-                            href="https://themeforest.net/user/pxlsolutions/portfolio"
-                            target="_blank"
-                    >
-                        <div class="portfolio-item rounded shadow-dark">
-                            <div class="details">
-                                <span class="term">خلاق، طراحی</span>
-                                <h4 class="title">فروشگاه تجاری</h4>
-                                <span class="more-button"><i class="icon-link"></i></span>
-                            </div>
-                            <div class="thumb">
-                                <img src="{% static "images/works/6.svg" %}" alt="Portfolio-title"/>
-                                <div class="mask"></div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                {% endfor %}
             </div>
 
             <!-- more button -->

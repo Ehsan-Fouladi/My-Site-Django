@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from home.models import User
 from django.views import View
 from django.views.generic import TemplateView, ListView
-
+from post.models import Post, File
 
 def home(request):
     if request.method == 'POST':
@@ -11,15 +11,13 @@ def home(request):
         topic = request.POST.get('topic')
         body = request.POST.get('body')
         User.objects.create(name=name, email=email, topic=topic, body=body)
+    articles = Post.objects.all()
+    return render(request, "home/index.html", {"articles":articles})
 
-    return render(request, "home/index.html", {})
 
+class FileDownloadView(ListView):
 
-# class HomeView(TemplateView):
-#     template_name = "home/index.html"
-    
-    
+    model = File
+    fields = ['file']
+    template_name = 'home/download.html'
 
-# class HomeModelView(ListView):
-#     template_name = "home/index.html"
-#     model = User
