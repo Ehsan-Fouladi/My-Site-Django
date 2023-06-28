@@ -1,4 +1,3 @@
-from re import T
 from django.db import models
 import django.utils.timezone
 

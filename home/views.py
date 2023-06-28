@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from home.models import User
 from django.views import View
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView
 from post.models import Post, File
 
 def home(request):
@@ -16,7 +16,6 @@ def home(request):
 
 
 class FileDownloadView(ListView):
-
     model = File
     fields = ['file']
     template_name = 'home/download.html'
