@@ -1115,14 +1115,7 @@
                             <div class="column col-md-6">
                                 <!-- Name input -->
                                 <div class="form-group">
-                                    <input
-                                            type="text"
-                                            class="form-control"
-                                            name="name"
-                                            id="InputName"
-                                            placeholder="نام و نام خانوادگی"
-                                            required="required"
-                                            data-error="ثبت نام و نام خانوادگی الزامی می باشد."/>
+                                    {{ form.name }}
                                     <div class="help-block with-errors"></div>
 
                                 </div>
@@ -1130,44 +1123,22 @@
                             <div class="column col-md-6">
                                 <!-- Email input -->
                                 <div class="form-group">
-                                    <input
-                                            type="email"
-                                            class="form-control"
-                                            id="InputEmail"
-                                            name="email"
-                                            placeholder="ایمیل"
-                                            required="required"
-                                            data-error="ثبت ایمیل الزامی می باشد."/>
+                                    {{form.email}}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
 
                             <div class="column col-md-12">
-                                <!-- Email input -->
+                                <!-- topic input -->
                                 <div class="form-group">
-                                    <input
-                                            type="text"
-                                            class="form-control"
-                                            id="InputSubject"
-                                            name="topic"
-                                            placeholder="موضوع"
-                                            required="required"
-                                            data-error="ثبت موضوع الزامی می باشد."/>
+                                    {{form.topic}}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="column col-md-12">
                                 <!-- Message textarea -->
                                 <div class="form-group">
-                      <textarea
-                              name="body"
-                              id="InputMessage"
-                              class="form-control"
-                              rows="5"
-                              placeholder="پیام"
-                              required="required"
-                              data-error="ثبت پیام الزامی می باشد."
-                      ></textarea>
+                                    {{form.body}}
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -1188,6 +1159,25 @@
         </div>
     </section>
 
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags %}
+                {% if message.tags == "success" %}
+                    <script src="{% static "js/sweetalert.js" %}"></script>
+                    <script>
+                        Swal.fire({
+                            position: 'center',
+                            icon: '{{ message.tags }}',
+                            title: '{{ message }}',
+                            showConfirmButton: false,
+                            timer: 2000
+                        })
+                    </script>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    
     <div class="spacer" data-height="96"></div>
     <footer class="footer">
         <div class="container">

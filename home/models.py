@@ -10,8 +10,6 @@ class User(models.Model):
     body = models.TextField(max_length=500, blank=True, verbose_name = "پیام")
     view_Time = models.DateTimeField(null=True, blank=False, default=django.utils.timezone.now)
 
-
-
     def __str__(self):
         return self.topic
 

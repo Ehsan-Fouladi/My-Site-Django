@@ -1,9 +1,6 @@
 from django.db import models
 
 
-
-
-
 class Post(models.Model):
     title = models.CharField(max_length=100, verbose_name='عنوان')
     image = models.ImageField(upload_to="images/Post", verbose_name='عکس')
