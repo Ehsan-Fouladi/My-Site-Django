@@ -23,14 +23,14 @@ INSTALLED_APPS = [
     "django_cleanup.apps.CleanupConfig",
     "admin_notification",
     "admin_persian",
+    "rosetta",
+    # page
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # page
-    
 
     #my-app
     "home.apps.HomeConfig",

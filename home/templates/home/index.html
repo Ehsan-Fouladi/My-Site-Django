@@ -3,7 +3,7 @@
 <html lang="en-US" dir="rtl">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>پاتوق پایتون</title>
+    <title>Ehsan-Fouladi</title>
     <meta
             name="description"
             content="Bolby - Portfolio/CV/Resume HTML Template"
@@ -163,21 +163,23 @@
 
                 <!-- social icons -->
                 <ul class="social-icons light list-inline mb-0 mt-4">
-                    <li class="list-inline-item">
-                        <a href="https://www.instagram.com/python_hangout.ir"><i class="fab fa-instagram"></i></a>
-                    </li>
-                    <li class="list-inline-item">
+                    <!-- <li class="list-inline-item">
                         <a href="https://twitter.com/djangoEhsan"><i class="fab fa-twitter"></i></a>
+                    </li> -->
+                    {% for net in myNetwork %}
+                    <li class="list-inline-item">
+                        <a href="{{ net.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://linkedin.com/in/ehsan-fouladi-a0144a237"><i class="fab fa-linkedin"></i></a>
+                        <a href="{{ net.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://github.com/Ehsan-Fouladi"><i class="fab fa-github"></i></a>
+                        <a href="{{ net.github }}" target="_blank"><i class="fab fa-github"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="https://web.telegram.org/k/"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="{{ net.telegram }}" target="_blank"><i class="fab fa-telegram-plane"></i></a>
                     </li>
+                    {% endfor %}
                 </ul>
 
                 <!-- buttons -->
@@ -400,9 +402,11 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <!-- about text -->
+                                {% for cv in cvs %}
                                 <p>
-                                   سلام من احسان هستم برنامه نویس سایت من در زمینه سایت فعالیت دارم من در خراسان رضوی کلبهار زندگی میکنم حدود ۱سال نیم هسات که این حوضه را شروع کردم 
+                                {{ cv.cv }}
                                 </p>
+                                {% endfor %}
                                 <div class="mt-3">
                                     <a href="{% url "home:download" %}" class="btn btn-default">دانلود رزومه</a>
                                 </div>
@@ -462,24 +466,6 @@
                                                 aria-valuemax="100"
                                                 aria-valuenow="79"
                                                 data-color="#F97B8B"
-                                        ></div>
-                                    </div>
-                                    <div class="spacer" data-height="20"></div>
-                                </div>
-                                <!-- skill item -->
-                                <div class="skill-item">
-                                    <div class="skill-info clearfix">
-                                        <h4 class="float-left mb-3 mt-0">Docker</h4>
-                                        <span class="float-right">52%</span>
-                                    </div>
-                                    <div class="progress">
-                                        <div
-                                                class="progress-bar data-background"
-                                                role="progressbar"
-                                                aria-valuemin="0"
-                                                aria-valuemax="100"
-                                                aria-valuenow="52"
-                                                data-color="#F9D74C"
                                         ></div>
                                     </div>
                                     <div class="spacer" data-height="20"></div>
@@ -570,7 +556,7 @@
                     <div class="fact-item">
                         <span class="icon icon-fire"></span>
                         <div class="details">
-                            <h3 class="mb-0 mt-0 number"><em class="count">20</em></h3>
+                            <h3 class="mb-0 mt-0 number"><em class="count">7</em></h3>
                             <p class="mb-0">پروژه های انجام شده</p>
                         </div>
                     </div>
@@ -582,7 +568,7 @@
                     <div class="fact-item">
                         <span class="icon icon-cup"></span>
                         <div class="details">
-                            <h3 class="mb-0 mt-0 number"><em class="count">200</em></h3>
+                            <h3 class="mb-0 mt-0 number"><em class="count">50</em></h3>
                             <p class="mb-0">فنجان قهوه</p>
                         </div>
                     </div>
@@ -594,7 +580,7 @@
                     <div class="fact-item">
                         <span class="icon icon-people"></span>
                         <div class="details">
-                            <h3 class="mb-0 mt-0 number"><em class="count">10</em></h3>
+                            <h3 class="mb-0 mt-0 number"><em class="count">3</em></h3>
                             <p class="mb-0">مشتریان راضی</p>
                         </div>
                     </div>
@@ -606,7 +592,7 @@
                     <div class="fact-item">
                         <span class="icon icon-badge"></span>
                         <div class="details">
-                            <h3 class="mb-0 mt-0 number"><em class="count">10</em></h3>
+                            <h3 class="mb-0 mt-0 number"><em class="count">1</em></h3>
                             <p class="mb-0">جایزه های دریافت شده</p>
                         </div>
                     </div>
