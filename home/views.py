@@ -3,7 +3,7 @@ from django.views.generic import ListView, FormView
 from django.contrib import messages
 from post.models import Post, File
 from .forms import ContactForms
-from .models import MySocialNetworks, Cv
+from .models import MySocialNetworks, Cv, Services, PlanPrice, experiences, ExperiencesCores
 
 class ContactUserView(FormView):
     form_class = ContactForms
@@ -15,6 +15,10 @@ class ContactUserView(FormView):
         context["articles"] = Post.objects.all()
         context["myNetwork"] = MySocialNetworks.objects.all()
         context["cvs"] = Cv.objects.all()
+        context["service"] = Services.objects.all().order_by("time_ser")
+        context["plan"] = PlanPrice.objects.all()
+        context["experience"] = experiences.objects.all()
+        context["experiencesCore"] = ExperiencesCores.objects.all()
         return context
 
     def form_valid(self, form):

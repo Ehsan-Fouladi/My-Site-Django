@@ -473,6 +473,24 @@
                                 <!-- skill item -->
                                 <div class="skill-item">
                                     <div class="skill-info clearfix">
+                                        <h4 class="float-left mb-3 mt-0">TailwindCss</h4>
+                                        <span class="float-right">75%</span>
+                                    </div>
+                                    <div class="progress">
+                                        <div
+                                                class="progress-bar data-background"
+                                                role="progressbar"
+                                                aria-valuemin="0"
+                                                aria-valuemax="100"
+                                                aria-valuenow="75"
+                                                data-color="#FFA15C"
+                                        ></div>
+                                    </div>
+                                    <div class="spacer" data-height="20"></div>
+                                </div>
+                                <!-- skill item -->
+                                <div class="skill-item">
+                                    <div class="skill-info clearfix">
                                         <h4 class="float-left mb-3 mt-0">bootstrap</h4>
                                         <span class="float-right">70%</span>
                                     </div>
@@ -610,51 +628,20 @@
             <div class="spacer" data-height="60"></div>
 
             <div class="row">
+                {% for services in service %}
                 <div class="col-md-4">
                     <!-- service box -->
-                    <div
-                            class="service-box rounded data-background padding-30 text-center text-light shadow-blue"
-                            data-color="#6C6CE5"
-                    >
-                        <img src="{% static "images/django.png" %}" alt="django" width="100" height="100" />
-                        <h3 class="mb-3 mt-0">جنگو</h3>
+                    <div class="service-box rounded data-background padding-30 text-center text-light shadow-blue"
+                    data-color="#6C6CE5">
+                        <img src="{{services.img.url}}" alt="django" width="100" height="100" />
+                        <h3 class="mb-3 mt-0">{{services.title}}</h3>
                         <p class="mb-0">
-                            جنگو یکی از فرم ورک های قوی پایتون است که با آن میتوانیم بکند سایت ها رو بنوسیم سایت های طراحی شده Instagram Spotify 
-                            YouTube Mozilla
-                            Netflix
+                            {{services.text}}
                         </p>
                     </div>
                     <div class="spacer d-md-none d-lg-none" data-height="30"></div>
                 </div>
-
-                <div class="col-md-4">
-                    <!-- service box -->
-                    <div
-                            class="service-box rounded data-background padding-30 text-center shadow-yellow"
-                            data-color="#F9D74C"
-                    >
-                        <img src="{% static "images/service-2.svg" %}" alt="UI/UX design"/>
-                        <h3 class="mb-3 mt-0">توسعه دهنده وب</h3>
-                        <p class="mb-0">
-                            من میتوانم در توسعه بکند و فرانت همکاری مستقیمی داشته باشم من پروژه های زیادی درتوسعه وب داشتم
-                        </p>
-                    </div>
-                    <div class="spacer d-md-none d-lg-none" data-height="30"></div>
-                </div>
-
-                <div class="col-md-4">
-                    <!-- service box -->
-                    <div
-                            class="service-box rounded data-background padding-30 text-center text-light shadow-pink"
-                            data-color="#F97B8B"
-                    >
-                        <img src="{% static "images/python2.png" %}" alt="python" width="100" height="100" />
-                        <h3 class="mb-3 mt-0">پایتون</h3>
-                        <p class="mb-0">
-                             پایتون یکی از قدرتمند ترین زبان برنامه نویسی برای حوزه های وب هوش مصنوعی و ماشین لرنینگFlask Django Artificial-intelligence Machine-learning 
-                        </p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
 
             <div class="mt-5 text-center">
@@ -677,49 +664,19 @@
             <div class="row">
                 <div class="col-md-6">
                     <!-- timeline wrapper -->
-                    <div
-                            class="timeline edu bg-dark rounded shadow-dark padding-30 overflow-hidden"
-                    >
+                    <div class="timeline edu bg-dark rounded shadow-dark padding-30 overflow-hidden">
+                        {% for exps in experiencesCore %}
                         <!-- timeline item -->
-                        <div class="timeline-container wow fadeInUp">
+                        <div class="timeline-container wow fadeInUp"
+                             data-wow-delay="0.2s">
                             <div class="content">
-                                <span class="time">1400/1401</span>
-                                <h3 class="title">برنامه نویسی</h3>
-                                <p class="mb-0">
-                                    من برنامه نویسی را از سال ۱۴۰۰ شروع کردم ودر زمینه های مختلفی کار میکنم
-                                </p>
+                                <span class="time">{{ exps.time_days }}</span>
+                                <h3 class="title">{{ exps.title }}</h3>
+                                <p class="mb-0">{{ exps.subjects }}</p>
                             </div>
                         </div>
-
-                        <!-- timeline item -->
-                        <div
-                                class="timeline-container wow fadeInUp"
-                                data-wow-delay="0.2s"
-                        >
-                            <div class="content">
-                                <span class="time">1400/1401</span>
-                                <h3 class="title">مدرک کارشناسی</h3>
-                                <p class="mb-0">
-                                    من دانشجوی رشته کامپیوتر هستم ودرسایت کدیاد آموزش دیدم
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- timeline item -->
-                        <div
-                                class="timeline-container wow fadeInUp"
-                                data-wow-delay="0.4s"
-                        >
-                            <div class="content">
-                                <span class="time">1400/1401</span>
-                                <h3 class="title">پروژه ها</h3>
-                                <p class="mb-0">
-                                    من در این یک سوال نیم پروژه های بکند و فرانت زدم میتوانید نمونه کار های من روی گیت هاب مشاهده کنید 
-                                </p>
-                            </div>
-                        </div>
-
                         <!-- main line -->
+                        {% endfor %}
                         <span class="line"></span>
                     </div>
                 </div>
@@ -729,49 +686,19 @@
                     <div class="spacer d-md-none d-lg-none" data-height="30"></div>
 
                     <!-- timeline wrapper -->
-                    <div
-                            class="timeline exp bg-dark rounded shadow-dark padding-30 overflow-hidden"
-                    >
+                    <div class="timeline exp bg-dark rounded shadow-dark padding-30 overflow-hidden">
+                        {% for exps in experience %}
                         <!-- timeline item -->
-                        <div class="timeline-container wow fadeInUp">
+                        <div class="timeline-container wow fadeInUp"
+                                data-wow-delay="0.3s">
                             <div class="content">
-                                <span class="time">1400/1401</span>
-                                <h3 class="title">پایتون</h3>
-                                <p class="mb-0">
-                                    من یکسال نیم هست این حوزه شروع کردم من عاشق این حوزه هستم و مداوم در حال یادگیری هستم
-                                </p>
+                                <span class="time">{{ exps.time_days }}</span>
+                                <h3 class="title">{{ exps.title }}</h3>
+                                <p class="mb-0">{{ exps.subjects }}</p>
                             </div>
                         </div>
-
-                        <!-- timeline item -->
-                        <div
-                                class="timeline-container wow fadeInUp"
-                                data-wow-delay="0.2s"
-                        >
-                            <div class="content">
-                                <span class="time">1400/1401</span>
-                                <h3 class="title">توسعه دهنده Front-End</h3>
-                                <p class="mb-0">
-                                    من که همین جوری که بکند هم کار میکنم فرانت هم کار میکنم به میتوانید پروژه های من در گیت هاب مشاهده کنید 
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- timeline item -->
-                        <div
-                                class="timeline-container wow fadeInUp"
-                                data-wow-delay="0.4s"
-                        >
-                            <div class="content">
-                                <span class="time">1400/1401</span>
-                                <h3 class="title">توسعه دهنده Back-End</h3>
-                                <p class="mb-0">
-                                    من حدود یک سوال نیم هست که کار با فرم ورک جنگو و پایتون شروع کردم نمونه کار های من میتوانید در گیت هاب مشاهده کنید 
-                                </p>
-                            </div>
-                        </div>
-
                         <!-- main line -->
+                        {% endfor %}
                         <span class="line"></span>
                     </div>
                 </div>
@@ -832,44 +759,22 @@
             <div class="spacer" data-height="60"></div>
 
             <div class="row">
-                <div class="col-md-4 pr-md-0 mt-md-4 mt-0">
-                    <!-- price item -->
-                    <div class="price-item bg-dark rounded shadow-dark text-center">
-                        <img src="{% static "images/price-1.svg" %}" alt="Regular"/>
-                        <h2 class="plan">پایه</h2>
-                        <p>طراحی یک سایت کوچک با جزیات مختلف</p>
-                        <p>پشتیبانی ایمیل ۹/۱۹</p>
-                        <h3 class="price">1/000/000<em>تومان</em><span>3ماهیانه</span></h3>
-                        <a href="#" class="btn btn-default">شروع کنید</a>
-                    </div>
-                </div>
-
+                {% for plans in plan %}
+                <!-- price item recommended-->
                 <div class="col-md-4 px-md-0 my-4 my-md-0">
-                    <!-- price item recommended-->
-                    <div
-                            class="price-item bg-dark rounded shadow-dark text-center best"
-                    >
+                    <div class="price-item bg-dark rounded shadow-dark text-center best">
+                        {% if plans.proposal %}
                         <span class="badge">پیشنهاد شده</span>
-                        <img src="{% static "images/price-2.svg" %}" alt="Premium"/>
-                        <h2 class="plan">متوسط</h2>
-                        <p>طراحی سایت با فرم ورک جنگو با جزیات بیشتر</p>
-                        <p>پشتیبانی دوشنبه تا جمعه</p>
-                        <h3 class="price">3/000/200<em>تومان </em><span>2ماهیانه</span></h3>
-                        <a href="#" class="btn btn-default">شروع کنید</a>
-                    </div>
-                </div>
-
-                <div class="col-md-4 pl-md-0 mt-md-4 mt-0">
-                    <!-- price item -->
-                    <div class="price-item bg-dark rounded shadow-dark text-center">
+                        {% endif %}
                         <img src="{% static "images/price-3.svg" %}" alt="Ultimate"/>
-                        <h2 class="plan">پیشرفته</h2>
-                        <p>طراحی سایت با فرم ورک جنگو با جزیات بیشتر و تخفیف استثنایی</p>
-                        <p>پشتبانی 24 ساعته</p>
-                        <h3 class="price">4/000/500<em>تومان </em><span>1ماهیانه</span></h3>
+                        <h2 class="plan">{{ plans.title }}</h2>
+                        <p>{{ plans.subject }}</p>
+                        <p>{{ plans.support }}</p>
+                        <h3 class="price">{{ plans.price }}<em>تومان </em><span>{{ plans.days }}</span></h3>
                         <a href="#" class="btn btn-default">شروع کنید</a>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -1167,7 +1072,7 @@
     <footer class="footer">
         <div class="container">
             <p class="col-md-12 col-sm-6 link-footer">ایمیل:fooehan3@gmail.com</p>            
-            <p class="col-md-12 col-sm-6 link-footer">تماس با ما :09933893859</p>            
+            <p class="col-md-12 col-sm-6 link-footer">تماس با ما :09025672263</p>            
             <span class="copyright">©هرگونه کپی برداری حرام است. <span id="time"></span></span>
         </div>
     </footer>

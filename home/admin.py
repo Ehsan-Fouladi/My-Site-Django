@@ -15,3 +15,7 @@ class User(admin.ModelAdmin):
 
 admin.site.register(models.MySocialNetworks)
 admin.site.register(models.Cv)
+admin.site.register(models.Services)
+admin.site.register(models.PlanPrice)
+admin.site.register(models.experiences)
+admin.site.register(models.ExperiencesCores)
