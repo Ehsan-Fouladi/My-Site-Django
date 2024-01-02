@@ -6,7 +6,7 @@
     <title>Ehsan-Fouladi</title>
     <meta
             name="description"
-            content="Bolby - Portfolio/CV/Resume HTML Template"
+            content="Ehsan Fouladi Full Static Developer"
     />
     <meta
             name="viewport"
@@ -163,21 +163,18 @@
 
                 <!-- social icons -->
                 <ul class="social-icons light list-inline mb-0 mt-4">
-                    <!-- <li class="list-inline-item">
-                        <a href="https://twitter.com/djangoEhsan"><i class="fab fa-twitter"></i></a>
-                    </li> -->
                     {% for net in myNetwork %}
                     <li class="list-inline-item">
-                        <a href="{{ net.instagram }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="{{ net.instagram }}" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="{{ net.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="{{ net.linkedin }}" target="_blank" title="linkedin"><i class="fab fa-linkedin"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="{{ net.github }}" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="{{ net.github }}" target="_blank" title="github"><i class="fab fa-github"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="{{ net.telegram }}" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="{{ net.telegram }}" target="_blank" title="telegram"><i class="fab fa-telegram-plane"></i></a>
                     </li>
                     {% endfor %}
                 </ul>
