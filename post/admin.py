@@ -8,9 +8,10 @@ class TicketComment(admin.SimpleListFilter):
 
 @admin.register(models.Post)
 class Post(admin.ModelAdmin):
-    list_display = ("title", "image")
-    list_filter = ("title", "image",)
-    list_editable = ("image",)
+    list_display = ("title", "show_image")
+    list_filter = ("title",)
+    search_fields = ("title",)
+    list_per_page = 5
 
 
 admin.site.register(models.File)

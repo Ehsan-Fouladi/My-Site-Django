@@ -23,7 +23,7 @@ class ContactUserView(FormView):
 
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, ".پیام شما با موفقیت ثبت شد!")
+        messages.success(self.request, "پیام شما با موفقیت ثبت شد.!")
         return super().form_valid(form)
 
 class FileDownloadView(ListView):
