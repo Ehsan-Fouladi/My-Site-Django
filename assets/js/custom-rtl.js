@@ -160,8 +160,6 @@ $(window).on('load', function() {
         nextSelector: '.portfolio-pagination li a',
         navSelector: '.portfolio-pagination',
         extraScrollPx: 0,
-        bufferPx: 0,
-        maxPage: 6,
         loading: {
             finishedMsg: "موردی برای نمایش وجود ندارد",
             msgText: '',
